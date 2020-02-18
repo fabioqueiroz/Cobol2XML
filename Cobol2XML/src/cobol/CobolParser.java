@@ -31,6 +31,7 @@ import parse.tokens.Num;
 import parse.tokens.Symbol;
 import parse.tokens.Tokenizer;
 import parse.tokens.Word;
+import parse.tokens.*;
 
 public class CobolParser {
 	/**

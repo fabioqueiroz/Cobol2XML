@@ -6,6 +6,7 @@ import cobol.Cobol;
 import cobol.CobolParser;
 import parse.Assembly;
 import parse.Parser;
+import parse.tokens.NumberState;
 import parse.tokens.TokenAssembly;
 import parse.tokens.Tokenizer;
 
@@ -42,8 +43,30 @@ public class DivisionTests {
 		Cobol c = new Cobol();
 		c = (Cobol) out.getTarget();
 		
-		assertEquals(c.getDivisionName(), "working-storage.");
+		assertEquals(c.getDivisionName(), "working-storage");
 //		assertEquals(c.getDivisionName(), null);
 	}
+	
+	@Test
+	public void testTokenizer() {
+		Tokenizer t = CobolParser.tokenizer();		
+		NumberState ns = t.numberState();
+		
+		assertNotNull(ns);
+		assertEquals(t.getReader(), null);
+		assertTrue(t.slashState() != null);
+		
+		
+	}
 
+	@Test
+	public void testAssembly() {
+		Tokenizer t = CobolParser.tokenizer();
+		Parser p = CobolParser.start();
+		
+		t.setString("identification division.");
+		
+		Assembly in = new TokenAssembly(t);
+		Assembly out = p.bestMatch(in);
+	}
 }

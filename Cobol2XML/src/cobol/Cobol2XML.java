@@ -63,7 +63,7 @@ public class Cobol2XML {
 
 		Tokenizer t = CobolParser.tokenizer();
 		Parser p = CobolParser.start();
-		
+
 		// Look through source code file line by line
 		while (true) {
 			// throws IOException
