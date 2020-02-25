@@ -34,6 +34,7 @@ public class Cobol implements PubliclyCloneable {
 	protected String constantName;
 	protected double constantValue;
 	protected int lineNumber= 0;
+
 	
 	/**
 	 * Return a copy of this object.
